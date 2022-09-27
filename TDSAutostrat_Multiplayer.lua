@@ -847,8 +847,21 @@ if not getgenv().ExecutedAlr then
                                                             tostring(r) .. "}"
                                                     )
                                                 end
-                                                while wait() do
+                                                while task.wait() do
                                                     getgenv().status = "Joined (" .. au.State.Timer.Value .. "s)"
+                                                    if au.State.Timer.Value == 0 then
+                                                        local ay = true
+                                                        for c = 1, 100 do
+                                                            if aq and ax.Value > as then
+                                                                if getgenv().Multiplayer and getgenv().Connection then
+                                                                    --[[getgenv().Connection:Send(
+                                                                        '{"client":"Host","action":"LElevator"}'
+                                                                    )]]
+                                                                end
+                                                                getgenv().status = "Someone joined... Multiplayer time!"
+                                                            end
+                                                            task.wait(0.01)
+                                                        end
                                                         if au.State.Timer.Value == 0 and ay then
                                                             getgenv().status = "Teleporting..."
                                                             wait(60)
@@ -873,14 +886,14 @@ if not getgenv().ExecutedAlr then
                                                     if av.Value == ap then
                                                         if aq then
                                                             if ax.Value > as then
-                                                                --if getgenv().Multiplayer and getgenv().Connection then
-                                                                    
-                                                                --end
-                                                               -- f:InvokeServer("Elevators", "Leave")
+                                                                if getgenv().Multiplayer and getgenv().Connection then
+                                                                    --[[getgenv().Connection:Send(
+                                                                        '{"client":"Host","action":"LElevator"}'
+                                                                    )]]
+                                                                end
+                                                                --f:InvokeServer("Elevators", "Leave")
                                                                 --prints("Someone joined, leaving elevator...")
-                                                                --getgenv().status = "Someone joined..."
-                                                                --getgenv().repeating = true
-                                                                --break
+                                                                getgenv().status = "Someone joined... Multiplayer time!"
                                                             elseif ax.Value == 0 then
                                                                 wait(1)
                                                                 if ax.Value == 0 then
